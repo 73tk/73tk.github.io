@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<h1 class="hdg-lv1-01">New entry</h1>
+
+<div class="posts cards">
+{% for post in site.posts %}
+<article class="card">
+<div class="image">
+<a href="{{ site.baseurl }}{{ post.url }}"><img src="{{ site.baseurl }}{{ post.thumnail }}" alt=""></a>
+<!-- /image --></div>
+<div class="content">
+<time>{{ post.date | date_to_long_string }}</time>
+<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+<div class="txt-01">
+<p>{{ post.description }}</p>
+<!-- /text-wrap --></div>
+<div class="post-tags">
+<ul>
+{% assign tags = post.tags %}
+{% for tag in tags %}
+<li><i class="icon fa fa-tags"></i> <a href="{{ site.baseurl }}/tags#{{ post.tags | slugize }}">
+{{ tag }}
+</a></li>
+{% endfor %}
+</ul>
+</div>
+<!-- /content --></div>
+<!-- /card --></article>
+{% endfor %}
+<!-- /posts cards --></div>

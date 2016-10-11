@@ -1,0 +1,80 @@
+// 	clear fix
+//---------------------------------------------------
+
+%clf{
+	zoom:1;
+	&:after{
+		display: block;
+		content: "";
+		clear: both;
+	}
+}
+
+%bdbx{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// 	margin
+//---------------------------------------------------
+
+@mixin m0a{
+	margin: 0 auto;
+}
+
+// 	compass mixin simplify
+//---------------------------------------------------
+
+@mixin fs($fontSize, $baseFontSize:16){
+  font-size: percentage($fontSize / $baseFontSize);
+}
+
+// 	compass mixin simplify
+//---------------------------------------------------
+
+@mixin radius($size) {
+	@include border-radius($size + px);
+}
+
+//	figure
+//---------------------------------------------------
+
+@mixin circle($size){
+	width: $size + px;
+	height: $size + px;
+	@include border-radius(100%);
+}
+
+@mixin arrow($direction: right, $size: 10, $color: #000){
+	$set: left;
+	
+	@if $direction == left{
+		$set: right;
+	}@elseif $direction == top{
+		$set: bottom;
+	}@elseif $direction == bottom{
+		$set: top;
+	}@else{
+		$set: left;
+	}
+	$size: round($size / 2);
+	
+	width: 0;
+	height: 0;
+	border: $size + px solid transparent;
+	border-#{$set}-color: $color;
+}
+
+@mixin arrowlink($top, $size: 10, $color: #000){
+	position: relative;
+	padding-left: $size + px;
+	&:before{
+		display: block;
+		content: "";
+		position: absolute;
+		top: $top + px;
+		left: 1px;
+		@include arrow(right, $size, $color);
+	}
+}

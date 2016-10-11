@@ -1,0 +1,66 @@
+---
+layout: default
+title: Posts By Categories
+permalink: /categories
+---
+
+{% comment %}
+<!--
+- Create an empty array.
+- Obtain a category name and push it to the array.
+- Sort the category names.
+- List categories as a category cloud.
+-->
+{% endcomment %}
+
+{% assign category_names = "" | split: "|"  %}
+
+{% for posts_by_category in site.categories %}
+{% assign category_names = category_names | push: posts_by_category.first %}
+{% endfor %}
+
+{% assign category_names = category_names | sort %}
+
+{% if include.category_names %}
+{% assign category_names = include.category_names %}
+
+{% else %}
+{% assign category_names = "" | split: "|"  %}
+
+{% for posts_by_category in site.categories %}
+{% assign category_names = category_names | push: posts_by_category.first %}
+{% endfor %}
+
+{% assign category_names = category_names | sort %}
+{% endif %}
+
+<article class="sort">
+
+<h1 class="hdg-lv1-01">{{ page.title }}</h1>
+
+<ul class="category-cloud">
+{% for category_name in category_names %}
+<li>
+<a href="{{ baseurl }}/categories#{{ category_name | slugize }}">{{ category_name }}</a>
+</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<section class="posts-by-categories">
+{% for category_name in category_names %}
+<div>
+<h2 class="hdg-lv2-01" id="{{ category_name }}">
+{{ category_name | capitalize | replace: "_", " " }}
+</h2>
+<ul class="list-link">
+{% for post in site.categories[category_name] %}
+<li><a href="{{ post.url | prepend: baseurl }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endfor %}
+</section>
+
+</article>

@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<article class="post">
+<div class="blog-entry-header">
+<div class="date">
+<i class="icon fa fa-calendar"></i> {{ page.date | date: "%B %e, %Y" }}
+</div>
+<h1 class="hdg-lv1-01">{{ page.title }}</h1>
+<div class="blog-entry-info">
+<div class="categories">
+category : {{ page.categories | array_to_sentence_string }}
+</div>
+<div class="tags">
+<i class="icon fa fa-tags"></i> {{ page.tags | array_to_sentence_string }}
+</div>
+<!-- /article-info --></div>
+<!-- /article-header --></div>
+
+<div class="blog-entry-content">
+{{ content }}
+</div>
+
+<div class="article-list-sns">
+<p>この記事をSNSで共有するにはこちら</p>
+<ul>
+<li><a class="btn fb" href="https://facebook.com/sharer.php?u=https://73-tk.github.io{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook" ><i class="icon fa fa-facebook-f"></i> share</a></li>
+<li><a class="btn tw" href="https://twitter.com/intent/tweet?text={{ page.title }} – {{ site.name }}&amp;url=https://73-tk.github.io{{ page.url }}" rel="nofollow" target="_blank" title="Share on Twitter"><i class="icon fa fa-twitter"></i> share</a></li>
+</ul>
+<!-- /article-list-sns --></div>
+
+</article>

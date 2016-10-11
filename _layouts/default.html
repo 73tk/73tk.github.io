@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+{% include meta.html %}
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" /> -->
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+{% include header.html %}
+
+<div id="contents">
+
+<div id="main" role="main">
+{{ content }}
+</div>
+
+<aside id="side">
+{% include side.html %}
+<!-- /side --></aside>
+
+<!-- /contents --></div>
+
+{% include footer.html %}
+
+<!-- /wrap --></div>
+
+{% include analytics.html %}
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="//npmcdn.com/minigrid@3.0.5/dist/minigrid.min.js"></script>
+<script src="{{ site.baseurl }}/js/run.js"></script>
+</html>

@@ -1,0 +1,44 @@
+
+//
+// VARIABLES
+//
+
+// Colors
+$blue: #4183C4;
+
+// Grays
+$color1: #000;
+$color2: #222;
+$color3: #333;
+$color4: #666;
+$color5: #eee;
+$color6: #fff;
+$color7 : #3E4149;
+$color8: #444F5A;
+$color9: #7AA5D2;
+$color10  : #B3CCE5;
+$color11 : #FDAC61;
+$color12 : #FDCDA0;
+$color13 : #FF9999;
+$color14 : #FFC8C8;
+$color15: #f7f7f7;
+
+// Font stacks
+$font1: 'Noto Sans JP', sans-serif;
+$font2: 'Inconsolata', monospace;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+%clf {
+  zoom : 1;
+  &:after {
+    display : block;
+    clear : both;
+    content : '';
+  }
+}

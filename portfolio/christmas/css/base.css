@@ -1,0 +1,176 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+h1 {
+  font-size: 150%;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #222222;
+}
+
+.mod-hdg-01 {
+  font-size: 125%;
+  font-weight: bold;
+  margin-bottom: 30px;
+  padding: 5px 20px 5px 0;
+  border-bottom: 3px solid #222222;
+}
+.mod-hdg-01:before {
+  display: inline-block;
+  width: 8px;
+  height: 20px;
+  margin: 0 12px -2px 0;
+  content: '';
+  border-radius: 4px;
+  background-color: #222222;
+}
+
+.mod-hdg-02 {
+  font-weight: bold;
+  margin: 30px 0 20px 0;
+}
+
+body {
+  font-family: sans-serif, "MS PGothic", Helvetica, Arial;
+  color: #222;
+}
+
+noscript div {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 5px solid #666;
+}
+
+noscript div p {
+  font-weight: bold;
+  text-align: center;
+  color: #666;
+}
+
+noscript div p:last-child {
+  margin-bottom: 0;
+}
+
+html, body, #wrap {
+  height: 100%;
+}
+
+#wrap {
+  width: 960px;
+}
+
+.animation-area {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 960px;
+  height: 400px;
+  margin: auto;
+  vertical-align: middle;
+}
+
+#svg {
+  position: absolute;
+  z-index: 1;
+  width: 960px;
+  height: 400px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #555;
+}
+
+h1 {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 30px;
+  line-height: 50px;
+  position: absolute;
+  z-index: 2;
+  left: -15px;
+  height: 50px;
+  padding: 0 2em;
+  letter-spacing: 2px;
+  color: #333;
+  background-color: #f0f0f0;
+}
+h1:before, h1:after {
+  position: absolute;
+  content: '';
+}
+h1:before {
+  top: 100%;
+  left: 0;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #ccc;
+}
+h1:after {
+  z-index: 2;
+  top: 0;
+  right: 0;
+  border-width: 25px 20px;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #555;
+}
+
+/*# sourceMappingURL=base.css.map */
