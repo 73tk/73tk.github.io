@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>D3.js sample mock</title>
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" media="screen,print" href="css/base.css" />
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+<h1>D3.js sample mock</h1>
+
+<div id="str-content">
+
+<nav>
+<ul class="g-nav">
+<li><a id="trigger1" href="#">Bar chart</a></li>
+<li><a id="trigger2" href="#">Line chart</a></li>
+<li><a id="trigger3" href="#">Pie chart</a></li>
+<li><a id="trigger4" href="#">Radar graph</a></li>
+</ul>
+</nav>
+
+<section id="first-view">
+<p>This is a sample mock of D3.js.</p>
+<p>Click side Navigation. &gt; &gt;</p>
+</section>
+
+<section id="graph1">
+<h2>bar chart</h2>
+<div class="controler">
+<label>Select &gt; &gt;</label>
+<input id="bar1" type="radio" name="data1" checked><label>Data 1</label>
+<input id="bar2" type="radio" name="data1"><label>Data 2</label>
+<input id="bar3" type="radio" name="data1"><label>Data 3</label>
+<!-- /controler --></div>
+<div class="graph" id="barChart">
+
+<!-- /graph --></div>
+</section>
+
+<section id="graph2">
+<h2>line chart</h2>
+<div class="controler">
+<label>Select &gt; &gt;</label>
+<input id="line1" type="radio" name="data2" checked><label>Data 1</label>
+<input id="line2" type="radio" name="data2"><label>Data 2</label>
+<input id="line3" type="radio" name="data2"><label>Data 3</label>
+<!-- /controler --></div>
+<div class="graph" id="lineChart">
+
+<!-- /graph --></div>
+</section>
+
+<section id="graph3">
+<h2>pie chart</h2>
+<div class="controler">
+<input id="pie1" type="radio" name="data3" checked><label>Data 1</label>
+<input id="pie2" type="radio" name="data3"><label>Data 2</label>
+<input id="pie3" type="radio" name="data3"><label>Data 3</label>
+<!-- /controler --></div>
+<div class="graph" id="pieChart">
+
+<!-- /graph --></div>
+</section>
+
+<section id="graph4">
+<h2>radar chart</h2>
+<div class="controler">
+<input id="radar1" type="radio" name="data4" checked><label>Data 1</label>
+<input id="radar2" type="radio" name="data4"><label>Data 2</label>
+<input id="radar3" type="radio" name="data4"><label>Data 3</label>
+<!-- /controler --></div>
+<div class="graph" id="radarChart">
+
+<!-- /graph --></div>
+</section>
+
+
+<!-- /str-content --></div>
+
+<!-- /wrap --></div>
+
+<script src="js/jquery.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/run.js"></script>
+</body>
+
+</html>
+

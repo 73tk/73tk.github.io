@@ -1,0 +1,149 @@
+body{
+font-family: 'Dosis', sans-serif;
+color: #fff;
+font-size: 16px;
+background-color: #333;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
+$wrapW: 960;
+$margin: 20;
+
+#wrap{
+  display: none;
+	width: $wrapW + px;
+	@include m0a;
+}
+
+h1{
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #93B8CA;
+  border-radius: 5px;
+  @include fs(30, 16);
+  padding: 10px 0;
+  margin-bottom: $margin + px;
+}
+
+h2{
+  font-weight: bold;
+  border: 2px solid #93B8CA;
+  border-radius: 5px;
+  @include fs(20, 16);
+  padding: 20px;
+  margin-bottom: $margin + px;
+  position: relative;
+  span{
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    display: block;
+    text-align: center;
+    line-height: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    right: 20px;
+  }
+}
+
+#str-content{
+  @extend %clf;
+}
+
+nav{
+  float: right;
+  width: ($wrapW - $margin) * 0.2 + px;
+  border: 2px solid #93B8CA;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  li{
+    margin-bottom: 20px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &.active{
+      font-weight: bold;
+    }
+    &:before{
+      content: '';
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 3px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #fff;
+      margin-right: 10px;
+    }
+    &.active:before, &:hover:before{
+      content: '';
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 3px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #FFF;
+      background-color: #93B8CA;
+      margin-right: 10px;
+    }
+  }
+}
+
+section{
+  float: left;
+  width: ($wrapW - $margin) * 0.8 + px;
+  display: none;
+}
+
+#first-view{
+  display: block;
+  height: 609px;
+  box-sizing: border-box;
+  padding-top: 250px;
+  border: 2px solid #93B8CA;
+  border-radius: 5px;
+  p{
+    text-align: center;
+    line-height: 50px;
+    @include fs(30, 16);
+  }
+}
+
+.controler{
+  display: none;
+  border: 2px solid #93B8CA;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: $margin + px;
+  label{
+    margin-right: 20px;
+  }
+}
+
+.graph{
+  display: none;
+  border: 2px solid #93B8CA;
+  border-radius: 5px;
+  padding: 4px;
+  box-sizing: border-box;
+  .axis text {
+      font-family: 'Dosis', sans-serif;
+      font-size: 12px;
+  }
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: #93B8CA;
+  }
+  .axis text {
+    stroke: #fff;
+  }
+}
+

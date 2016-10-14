@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>Light drops</title>
+<meta name="keywords" content="##keywords##" />
+<meta name="description" content="##description##" />
+<!-- ogp -->
+<meta property="og:title" content="73tk.io – Web Developer & Sound Designer's blog" />
+<meta property="og:url" content="https://73-tk.github.io/light-drops/" />
+<meta property="og:site_name" content="73tk.io" />
+<meta property="og:type" content="blog" />
+<meta name="og:image" content="https://73-tk.github.io/common/ogimage.jpg">
+<meta property="twitter:site" content="73tk.io" />
+<meta property="twitter:title" content="73tk.io – Web Developer & Sound Designer's blog" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="https://73-tk.github.io/light-drops/">
+<meta name="twitter:description" content="Web Developer & Sound Designer's blog">
+<meta name="twitter:image:src" content="https://73-tk.github.io/common/ogimage.jpg">
+<!-- ogp -->
+<style>
+* {
+  margin : 0;
+  padding : 0;
+}
+body {
+  overflow : hidden;
+  background-color : #000;
+}
+canvas {
+  background : #333;
+  background :    -moz-radial-gradient(center, ellipse cover,  #000 0%, #333 100%);
+  background : -webkit-radial-gradient(center, ellipse cover,  #000 0%,#333 100%);
+  background :         radial-gradient(ellipse at center,  #000 0%,#333 100%);
+}
+
+</style>
+</head>
+
+<body>
+<canvas id="cvs"></canvas>
+</body>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  function init() {
+
+    var stage = new createjs.Stage('cvs');
+    var count = 0;
+    var size = 30;
+    var amount = 3;
+    var maxLife = 50;
+    var pArry = [];
+
+    function emitParticles () {
+      for (var i = 0; i < amount; i = (i + 1)|0) {
+
+        count++;
+
+        var p = new createjs.Shape();
+        p.graphics.beginFill(createjs.Graphics.getHSL(count, 50, 50));
+        p.graphics.drawCircle(0, 0, size * Math.random());
+        stage.addChild(p);
+
+        p.compositeOperation = 'lighter';
+
+        p.x = stage.mouseX;
+        p.y = stage.mouseY;
+        p.vx = 20 * (Math.random() - 0.5);
+        p.vy = 30 * (Math.random() - 0.5);
+        p.life = maxLife;
+        pArry.push(p);
+      }
+    }
+
+    function updateParticles () {
+      for (var i = 0; i < pArry.length; i = (i + 1)|0) {
+        var p = pArry[i];
+
+        p.vy += 0.6;
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.y > stage.canvas.height) {
+          p.y = stage.canvas.height;
+          p.vy *= -1;
+        }
+
+        var scale = p.life / maxLife;
+        p.scaleX = p.scaleY = scale;
+
+        p.life--;
+
+        if (p.life <= 0) {
+          stage.removeChild(p);
+          pArry.splice(i, 1);
+        }
+      }
+    }
+
+    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    createjs.Ticker.addEventListener('tick', stage);
+    createjs.Ticker.addEventListener('tick', function () {
+      emitParticles();
+      updateParticles();
+    });
+
+    stage.mouseX = stage.canvas.width / 2;
+    stage.mouseY = stage.canvas.height / 2;
+
+  }
+
+  function resetCvs () {
+    var $cvs = $(document.getElementById('cvs'));
+    $cvs.get(0).width = $(window).innerWidth();
+    $cvs.get(0).height = $(window).innerHeight();
+  }
+
+  window.addEventListener('load', function () {
+    resetCvs();
+    init();
+  });
+
+  window.addEventListener('resize', function () {
+    resetCvs();
+  });
+
+})();
+
+</script>
+
+</html>
