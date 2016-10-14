@@ -30,12 +30,6 @@ body {
   overflow : hidden;
   background-color : #000;
 }
-canvas {
-  background : #333;
-  background :    -moz-radial-gradient(center, ellipse cover,  #000 0%, #333 100%);
-  background : -webkit-radial-gradient(center, ellipse cover,  #000 0%,#333 100%);
-  background :         radial-gradient(ellipse at center,  #000 0%,#333 100%);
-}
 
 </style>
 </head>
@@ -53,6 +47,8 @@ canvas {
   function init() {
 
     var stage = new createjs.Stage('cvs');
+    stage.autoClear = false;
+
     var count = 0;
     var size = 30;
     var amount = 3;
@@ -107,6 +103,19 @@ canvas {
         }
       }
     }
+
+    var fading = 0.25;
+
+    function addBackground(w, h, alpha) {
+      var bg = new createjs.Shape();
+      bg.graphics.beginFill('#000')
+      .drawRect(0, 0, w, h)
+      .endFill();
+      stage.addChild(bg);
+      bg.alpha = alpha;
+    }
+
+    addBackground(stage.canvas.width, stage.canvas.height, fading);
 
     createjs.Ticker.timingMode = createjs.Ticker.RAF;
     createjs.Ticker.addEventListener('tick', stage);
