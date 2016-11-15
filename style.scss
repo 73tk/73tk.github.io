@@ -234,11 +234,27 @@ $lines-to-show : 3;
 .cards {
   width : 100%;
   margin : 0 auto;
+  display:flex;
+  flex-flow: row wrap;
+  @include mobile {
+    flex-flow: column wrap;
+  }
 }
 .card {
   overflow : hidden;
-  width : 230px;
+  width : 30%;
+  margin-top: 30px;
+  & + .card {
+  margin-left: 5%;
+  }
+  &:nth-child(3n + 1) {
+    margin-left: 0;
+  }
   box-shadow : 0 0 5px #999;
+  @include mobile {
+    width: 100%;
+    margin: 30px 0 0 0 !important;
+  }
   time {
     letter-spacing: 1px;
     font-size: 1.2rem;

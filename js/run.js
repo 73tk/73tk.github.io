@@ -1,21 +1,3 @@
-(function(){
-  'use strict';
-
-  /* depend on minigrid@3.0.5 */
-
-  var grid = new Minigrid({
-    container: '.cards',
-    item: '.card',
-    gutter: 25
-  });
-  window.addEventListener('load', function () {
-    grid.mount();
-  });
-  window.addEventListener('resize', function () {
-    grid.mount();
-  });
-})();
-
 $(function () {
   'use strict';
 
