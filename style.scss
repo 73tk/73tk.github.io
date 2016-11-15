@@ -580,6 +580,14 @@ $lines-to-show : 3;
   > *:first-child {
     margin-top: 0;
   }
+  .img-mv {
+    width: 100%;
+    @include mobile {
+      width: calc(100% + 30px);
+      max-width: calc(100% + 30px);
+      margin-left: -15px;
+    }
+  }
   h2 {
     font-size : 2.6rem;
     font-weight : normal;
