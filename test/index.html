@@ -143,11 +143,11 @@ function playTrack() {
     var duration = audio.getDuration();
     trackIdx++;
     console.log(playList[currentTrackIdx].id + ' play');
-    audio.setVolume(0);
+    audio.setVolume(1);
     audio.play();
-    fadeVolume(audio, 'fadeIn');
+    // fadeVolume(audio, 'fadeIn');
     setTimeout(function() {
-      fadeVolume(audio, 'fadeOut');
+      // fadeVolume(audio, 'fadeOut');
       playTrack();
     }, duration - 3000);
     audio.addEventListener('complete', function() {
