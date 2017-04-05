@@ -111,6 +111,8 @@ function init() {
     createjs.Sound.registerSound( 'http://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/4f/62/82/4f6282cc-0fd8-6851-9c76-2bf3c70b50b3/mzaf_3455118235058161216.plus.aac.p.m4a', 'sound01');
 }
 $('#btn-play').on('click', function(event) {
+  alert(sound01)
+
   createjs.Sound.play("sound01");
 });
 function loadHandler(event)
