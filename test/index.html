@@ -80,10 +80,7 @@ p {
 </head>
 <body>
 
-<h1 id="hdg">sound.js crossfading</h1>
-<p id="message">Now loading...</p>
 <button id="btn-play">PLAY</button>
-<div id="status-bar-wrap"><div id="status-bar"></div></div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -111,13 +108,14 @@ function init() {
     //オーディオファイルのロードが終了したならloadHandlerが呼ばれる
     createjs.Sound.addEventListener("fileload", loadHandler);
     //オーディオファイルを登録
-    createjs.Sound.registerSound( playList[0].src, "sound01");
+    createjs.Sound.registerSound( 'http://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/4f/62/82/4f6282cc-0fd8-6851-9c76-2bf3c70b50b3/mzaf_3455118235058161216.plus.aac.p.m4a', 'sound01');
 }
-
+$('#btn-play').on('click', function(event) {
+  createjs.Sound.play("sound01");
+});
 function loadHandler(event)
 {
-    //音を出す
-    createjs.Sound.play("sound01");
+
 }
 
 // var trackIdx = 0;
