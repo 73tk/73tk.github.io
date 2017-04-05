@@ -87,37 +87,22 @@ p {
 <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script>
 <script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
 <script>
-var query = "?" + new Date().getTime();
-var playList = [{
-    id: 'track1',
-    src: 'http://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/79/07/5e/79075e7a-8727-801e-f9c5-ba53cc29ea94/mzaf_8051869408675545327.plus.aac.p.m4a' + query
-  },
-  {
-    id: 'track2',
-    src: 'http://a1194.phobos.apple.com/us/r30/Music7/v4/40/fb/1f/40fb1f7e-1f96-3c66-c9fe-03a1c9da7a97/mzaf_4348406058998422186.plus.aac.p.m4a' + query
-  },
-  {
-    id: 'track3',
-    src: 'http://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/4f/62/82/4f6282cc-0fd8-6851-9c76-2bf3c70b50b3/mzaf_3455118235058161216.plus.aac.p.m4a' + query
-  }
-];
 
 init();
 
 function init() {
+alert('loading')
     //オーディオファイルのロードが終了したならloadHandlerが呼ばれる
     createjs.Sound.addEventListener("fileload", loadHandler);
     //オーディオファイルを登録
     createjs.Sound.registerSound( 'http://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/4f/62/82/4f6282cc-0fd8-6851-9c76-2bf3c70b50b3/mzaf_3455118235058161216.plus.aac.p.m4a', 'sound01');
 }
 $('#btn-play').on('click', function(event) {
-  alert(sound01)
-
+  alert(sound01);
   createjs.Sound.play("sound01");
 });
-function loadHandler(event)
-{
-
+function loadHandler(event){
+  alert('loaded')
 }
 
 // var trackIdx = 0;
