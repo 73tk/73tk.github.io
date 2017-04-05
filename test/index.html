@@ -105,82 +105,97 @@ var playList = [{
   }
 ];
 
-var trackIdx = 0;
-var audioArr = [];
+init();
 
-createjs.Sound.alternateExtensions = ['m4a'];
-
-var loader = new createjs.LoadQueue(false);
-loader.installPlugin(createjs.Sound);
-loader.loadManifest(playList, true);
-loader.addEventListener('fileload', handleFileLoad);
-loader.addEventListener('progress', showProgress);
-
-function showProgress(event) {
-  document.getElementById('status-bar').style.width = Math.floor(event.progress * 100) + '%';
+function init() {
+    //オーディオファイルのロードが終了したならloadHandlerが呼ばれる
+    createjs.Sound.addEventListener("fileload", loadHandler);
+    //オーディオファイルを登録
+    createjs.Sound.registerSound( playList[0].src, "sound01");
 }
 
-function handleFileLoad(event) {
-  audioArr.push(createjs.Sound.createInstance(event.item.id));
-  if (audioArr.length === playList.length) {
-		$('#btn-play').fadeIn('fast');
-		$('#message').fadeOut('fast');
-		$('#status-bar-wrap').fadeOut('fast');
-  }
+function loadHandler(event)
+{
+    //音を出す
+    createjs.Sound.play("sound01");
 }
 
-$('#btn-play').on('click', function () {
-	$(this).fadeOut('fast', function () {
-		$('#hdg').fadeIn('fast');
-		playTrack(audioArr);
-	});
-});
-
-function playTrack() {
-  var currentTrackIdx = trackIdx;
-  if (trackIdx < (playList.length)) {
-    var audio = audioArr[trackIdx];
-    var duration = audio.getDuration();
-    trackIdx++;
-    console.log(playList[currentTrackIdx].id + ' play');
-    audio.setVolume(1);
-    audio.play();
-    // fadeVolume(audio, 'fadeIn');
-    setTimeout(function() {
-      // fadeVolume(audio, 'fadeOut');
-      playTrack();
-    }, duration - 3000);
-    audio.addEventListener('complete', function() {
-      console.log(playList[currentTrackIdx].id + ' end');
-    });
-  } else {
-    trackIdx = 0;
-  }
-}
-
-function fadeVolume(audio, direction) {
-  var volume;
-  if (direction === 'fadeIn') {
-    volume = 0;
-    var timerId = setInterval(function() {
-      volume++;
-      if (volume > 10) {
-        clearInterval(timerId);
-        return;
-      }
-      audio.setVolume(volume / 10);
-    }, 300);
-  } else if (direction === 'fadeOut') {
-    volume = 10;
-    var timerId = setInterval(function() {
-      volume--;
-      if (volume < 0) {
-        clearInterval(timerId);
-        return;
-      }
-      audio.setVolume(volume / 10);
-    }, 300);
-  }
-}
+// var trackIdx = 0;
+// var audioArr = [];
+//
+// createjs.Sound.alternateExtensions = ['m4a'];
+//
+// var loader = new createjs.LoadQueue(false);
+// loader.installPlugin(createjs.Sound);
+// loader.loadManifest(playList, true);
+// loader.addEventListener('fileload', handleFileLoad);
+// loader.addEventListener('progress', showProgress);
+//
+// function showProgress(event) {
+//   document.getElementById('status-bar').style.width = Math.floor(event.progress * 100) + '%';
+// }
+//
+// function handleFileLoad(event) {
+//   audioArr.push(createjs.Sound.createInstance(event.item.id));
+//   if (audioArr.length === playList.length) {
+// 		$('#btn-play').fadeIn('fast');
+// 		$('#message').fadeOut('fast');
+// 		$('#status-bar-wrap').fadeOut('fast');
+//   }
+// }
+//
+// $('#btn-play').on('click', function () {
+// 	$(this).fadeOut('fast', function () {
+// 		$('#hdg').fadeIn('fast');
+// 		playTrack(audioArr);
+// 	});
+// });
+//
+// function playTrack() {
+//   var currentTrackIdx = trackIdx;
+//   if (trackIdx < (playList.length)) {
+//     var audio = audioArr[trackIdx];
+//     var duration = audio.getDuration();
+//     trackIdx++;
+//     console.log(playList[currentTrackIdx].id + ' play');
+//     audio.setVolume(1);
+//     audio.play();
+//     // fadeVolume(audio, 'fadeIn');
+//     setTimeout(function() {
+//       // fadeVolume(audio, 'fadeOut');
+//       playTrack();
+//     }, duration - 3000);
+//     audio.addEventListener('complete', function() {
+//       console.log(playList[currentTrackIdx].id + ' end');
+//     });
+//   } else {
+//     trackIdx = 0;
+//   }
+// }
+//
+// function fadeVolume(audio, direction) {
+//   var volume;
+//   if (direction === 'fadeIn') {
+//     volume = 0;
+//     var timerId = setInterval(function() {
+//       volume++;
+//       if (volume > 10) {
+//         clearInterval(timerId);
+//         return;
+//       }
+//       audio.setVolume(volume / 10);
+//     }, 300);
+//   } else if (direction === 'fadeOut') {
+//     volume = 10;
+//     var timerId = setInterval(function() {
+//       volume--;
+//       if (volume < 0) {
+//         clearInterval(timerId);
+//         return;
+//       }
+//       audio.setVolume(volume / 10);
+//     }, 300);
+//   }
+// }
 </script>
 </html>
