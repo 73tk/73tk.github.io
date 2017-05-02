@@ -657,7 +657,7 @@ body {
 }
 
 #wrap {
-  background-color: #050;
+  background-color: #059;
   position: relative;
   top: 0;
   height: 100%;
@@ -686,6 +686,12 @@ body {
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+var _ua = (function(u){
+return {
+Facebook:(u.indexOf('fban/fbios;fbav') != -1)
+}
+})(window.navigator.userAgent.toLowerCase());
 
+console.log(_ua)
 </script>
 </html>
