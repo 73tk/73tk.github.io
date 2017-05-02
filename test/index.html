@@ -657,7 +657,7 @@ body {
 }
 
 #wrap {
-  background-color: #959;
+  background-color: #050;
   position: relative;
   top: 0;
   height: 100%;
@@ -692,6 +692,11 @@ Facebook:(u.indexOf('fban/fbios;fbav') != -1)
 }
 })(window.navigator.userAgent.toLowerCase());
 
-alert(_ua)
+if (_ua.Facebook) {
+  console.log('FB')
+  alert('FB')
+}
+
+
 </script>
 </html>
