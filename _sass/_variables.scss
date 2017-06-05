@@ -26,10 +26,17 @@ $color15: #f7f7f7;
 // Font stacks
 $font1: 'Noto Sans JP', sans-serif;
 $font2: 'Inconsolata', monospace;
+$small-device : 768px;
+$medium-device : 1200px;
 
-// Mobile breakpoints
-@mixin mobile {
-  @media screen and (max-width: 640px) {
+@mixin sp {
+  @media screen and (max-width: $small-device) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media screen and (max-width: $medium-device) {
     @content;
   }
 }

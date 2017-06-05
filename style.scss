@@ -104,7 +104,7 @@ strong {
     padding : 30px 15px;
     background : url('{{ site.baseurl }}/images/common/header-bg.jpg') no-repeat center center;
     background-size: cover;
-    @include mobile {
+    @include sp {
       background-image: url('{{ site.baseurl }}/images/common/sp-header-bg.jpg');
     }
     &:before {
@@ -125,7 +125,7 @@ strong {
     width: 1100px;
     margin: 0 auto;
     z-index: 2;
-    @include mobile {
+    @include sp {
       width: 100%;
     }
   }
@@ -143,7 +143,7 @@ strong {
     text-indent : 2px;
     letter-spacing : 2px;
     color : #fff;
-    @include mobile {
+    @include sp {
       font-size: 1rem;
     }
   }
@@ -162,7 +162,7 @@ strong {
     padding: 10px;
     text-align : center;
     border-bottom : 1px solid #eee;
-    @include mobile {
+    @include sp {
       width: 100%;
     }
   }
@@ -194,9 +194,9 @@ strong {
   width: 100%;
   max-width: 1260px;
   min-width: 1100px;
-  margin: 50px auto;
+  margin: 30px auto;
   @extend %clf;
-  @include mobile {
+  @include tb {
     max-width: 100%;
     min-width: 100%;
     width: 100%;
@@ -207,7 +207,7 @@ strong {
   float : left;
   width : calc(100% - 300px);
 
-  @include mobile {
+  @include tb {
     float : none;
     width : 100%;
     padding: 0 15px;
@@ -221,10 +221,11 @@ strong {
 #side {
   float: right;
   width: 250px;
+  margin-top: 36px;
   > *:first-child {
     margin-top: 0;
   }
-  @include mobile {
+  @include tb {
     float: none;
     width: 100%;
     margin-top: 50px;
@@ -240,29 +241,23 @@ $font-size-base : 14px;
 $line-height-computed : 1.6;
 $lines-to-show : 3;
 
-.cards {
-  width : 100%;
-  margin : 0 auto;
-  display:flex;
-  flex-flow: row wrap;
-  @include mobile {
-    flex-flow: column wrap;
-  }
-}
 .card {
-  overflow : hidden;
-  width : 30%;
-  margin-top: 30px;
-  & + .card {
-  margin-left: 5%;
+  @extend %clf;
+  margin-top: 45px;
+  box-shadow : 0 0 5px #ccc;
+  .image {
+    float: left;
+    width: 300px;
+    @include sp {
+      float: none;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
   }
-  &:nth-child(3n + 1) {
-    margin-left: 0;
-  }
-  box-shadow : 0 0 5px #999;
-  @include mobile {
-    width: 100%;
-    margin: 30px 0 0 0 !important;
+  .content {
+    overflow: hidden;
   }
   time {
     letter-spacing: 1px;
@@ -272,13 +267,12 @@ $lines-to-show : 3;
   h2 {
     font-size : 2rem;
     font-weight : normal;
-    margin-top: 0.2em;
-    padding-bottom : 0.5em;
-    border-bottom : 1px solid #ddd;
+    margin-top: 0.5em;
+    padding-bottom : 0.2em;
+    border-bottom: 1px solid #ddd;
   }
   .content {
     padding : 10px;
-    border-top : 5px solid $color11;
   }
   .post-tags{
     margin-top: 20px;
@@ -318,7 +312,18 @@ $lines-to-show : 3;
   padding : 10px 10px;
   text-indent : 1px;
   letter-spacing : 1px;
-  border-bottom : 4px solid #ccc;
+  &:before {
+    position : absolute;
+    content : '';
+    display: block;
+    height : 4px;
+    width: 100%;
+    z-index : 1;
+    bottom : -4px;
+    left : 0;
+    background: -webkit-repeating-linear-gradient(45deg, #fff, #fff 2px, #ddd 2px, #ddd 4px);
+    background: repeating-linear-gradient(45deg, #fff, #fff 2px, #ddd 2px, #ddd 4px);
+  }
   &:after {
     position : absolute;
     z-index : 2;
@@ -341,28 +346,36 @@ $lines-to-show : 3;
 .hdg-lv2-02 {
   font-size : 2rem;
   margin : 2em 0 1em;
-  padding : 0 0 0.25em 34px;
+  padding : 0 0 0.25em 36px;
   border-bottom : 3px double #ddd;
   position: relative;
   &:before, &:after {
     position : absolute;
     content : '';
   }
-  &:before {
+  &:after {
     z-index : 2;
     top : 0.2em;
     left : 0.2em;
-    width : 18px;
-    height : 18px;
+    width : 16px;
+    height : 16px;
     background : rgba(150, 150, 150, 0.5);
+    transform :rotate(30deg);
   }
-  &:after {
+  &:before {
     top : 0.7em;
     left : 0.7em;
     width : 13px;
     height : 13px;
     background : rgba(210, 210, 210, 0.5);
+    transform :rotate(45deg);
   }
+}
+
+.hdg-lv2-03 {
+  text-align: center;
+  font-size: 2em;
+  margin : 0.5em 0 0.5em;
 }
 
 .hdg-lv3-01{
@@ -416,7 +429,7 @@ $lines-to-show : 3;
   .image {
     float: left;
     margin-right: 30px;
-    @include mobile {
+    @include sp {
       float: none;
       text-align: center;
       margin-right: 0;
@@ -427,7 +440,7 @@ $lines-to-show : 3;
     *:first-child {
       margin-top: 0;
     }
-    @include mobile {
+    @include sp {
       margin-top: 20px;
     }
   }
@@ -452,7 +465,7 @@ $lines-to-show : 3;
     vertical-align : top;
     border-bottom : 1px solid #ccc;
     background : #efefef;
-    @include mobile {
+    @include sp {
       width: 100px;
     }
   }
@@ -461,7 +474,7 @@ $lines-to-show : 3;
     padding : 10px;
     vertical-align : top;
     border-bottom : 1px solid #ccc;
-    @include mobile {
+    @include sp {
       width: calc(100% - 100px);
     }
   }
@@ -542,6 +555,10 @@ $lines-to-show : 3;
   border-radius: 50%;
 }
 
+.w150 {
+  width: 150px;
+}
+
 .w200 {
   width: 200px;
 }
@@ -582,7 +599,7 @@ $lines-to-show : 3;
   }
   .img-mv {
     width: 100%;
-    @include mobile {
+    @include sp {
       width: calc(100% + 30px);
       max-width: calc(100% + 30px);
       margin-left: -15px;
@@ -691,7 +708,7 @@ $lines-to-show : 3;
   border-bottom : 1px solid #ddd;
   font-size: 1.4rem;
   text-align: center;
-  @include mobile {
+  @include sp {
     padding : 20px 0;
   }
   > *:first-child {
@@ -715,6 +732,16 @@ $lines-to-show : 3;
 //
 // side
 //
+
+.author {
+  .image {
+    text-align: center;
+  }
+  .desc {
+    text-align: center;
+    font-size: 1.1em;
+  }
+}
 
 .tag-cloud {
   li {
@@ -820,7 +847,7 @@ $lines-to-show : 3;
     width : 1100px;
     margin : 0 auto;
     text-align: center;
-    @include mobile {
+    @include sp {
       width: 100%;
     }
   }
