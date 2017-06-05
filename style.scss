@@ -244,13 +244,20 @@ $lines-to-show : 3;
 .card {
   @extend %clf;
   margin-top: 45px;
+  height: 200px;
+  @include sp {
+    height: auto;
+  }
+  overflow: hidden;
   box-shadow : 0 0 5px #ccc;
   .image {
     float: left;
     width: 300px;
+    height: 200px;
     @include sp {
       float: none;
       width: 100%;
+      height: auto;
       img {
         width: 100%;
       }
