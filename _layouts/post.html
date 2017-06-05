@@ -10,10 +10,17 @@ layout: default
 <h1 class="hdg-lv1-01">{{ page.title }}</h1>
 <div class="blog-entry-info">
 <div class="categories">
-category : {{ page.categories | array_to_sentence_string }}
+category : <a href="{{ site.baseurl }}/categories#{{ page.categories }}">{{ page.categories | array_to_sentence_string }}</a>
 </div>
 <div class="tags">
-<i class="icon fa fa-tags"></i> {{ page.tags | array_to_sentence_string }}
+<ul>
+{% assign tags = page.tags %}
+{% for tag in tags %}
+<li><i class="icon fa fa-tags"></i> <a href="{{ site.baseurl }}/tags#{{ tag }}">
+{{ tag }}
+</a></li>
+{% endfor %}
+</ul>
 </div>
 <!-- /article-info --></div>
 <!-- /article-header --></div>

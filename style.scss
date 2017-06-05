@@ -578,7 +578,7 @@ $lines-to-show : 3;
 .blog-entry-info {
   @extend %clf;
   font-size: 1.4rem;
-  margin-top: 10px;
+  margin-top: 15px;
   .categories {
     float: left;
     width: 40%;
@@ -587,6 +587,10 @@ $lines-to-show : 3;
     float: right;
     width: 40%;
     text-align: right;
+    li {
+      display: inline-block;
+      margin-left: 10px;
+    }
   }
 }
 
