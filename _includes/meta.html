@@ -8,14 +8,14 @@
 
 <!-- ogp start -->
 {% if page.title %}<meta property="og:title" content="{{ page.title }} | {{ site.name }}" />{% else %}<meta property="og:title" content="{{ site.name }} – {{ site.description }}" />{% endif %}
-<meta property="og:url" content="{{ site.baseurl }}{{ page.url }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 <meta property="og:site_name" content="{{ site.name }}" />
 {% if page.title %}<meta property="og:type" content="article" />{% else %}<meta property="og:type" content="blog" />{% endif %}
-{% if page.ogimage %}<meta name="og:image" content="{{ site.baseurl }}{{ page.ogimage }}">{% else %}<meta name="og:image" content="{{ site.baseurl }}/common/ogimage.jpg">{% endif %}
+{% if page.ogimage %}<meta name="og:image" content="{{ site.url }}{{ page.ogimage }}">{% else %}<meta name="og:image" content="{{ site.url }}/common/ogimage.jpg">{% endif %}
 <meta property="twitter:site" content="{{ site.name }}" />
 {% if page.title %}<meta property="twitter:title" content="{{ page.title }} | {{ site.name }}" />{% else %}<meta property="twitter:title" content="{{ site.name }} – {{ site.description }}" />{% endif %}
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:url" content="{{ site.baseurl }}{{ page.url }}">
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
 {% if page.description %}<meta name="twitter:description" content="{{ page.description }}" />{% else %}<meta name="twitter:description" content="{{ site.description }}">{% endif %}
-{% if page.ogimage %}<meta name="twitter:image:src" content="{{ site.baseurl }}{{ page.ogimage }}">{% else %}<meta name="twitter:image:src" content="{{ site.baseurl }}/common/ogimage.jpg">{% endif %}
+{% if page.ogimage %}<meta name="twitter:image:src" content="{{ site.url }}{{ page.ogimage }}">{% else %}<meta name="twitter:image:src" content="{{ site.url }}/common/ogimage.jpg">{% endif %}
 <!-- ogp end -->

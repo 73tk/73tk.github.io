@@ -75,7 +75,7 @@ kramdown:
     # Use existing pygments syntax highlighting css
     css_class: 'highlight'
 
-paginate: 3
+paginate: 5
 paginate_path: page:num
 
 # Set the Sass partials directory, as we're using @imports
