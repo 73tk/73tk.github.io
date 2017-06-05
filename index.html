@@ -4,7 +4,7 @@ layout: default
 <h1 class="hdg-lv1-01">New entry</h1>
 
 <div class="posts cards">
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 <article class="card">
 <div class="image">
 <a href="{{ site.baseurl }}{{ post.url }}"><img src="{{ site.baseurl }}{{ post.thumnail }}" alt=""></a>
@@ -29,3 +29,18 @@ layout: default
 <!-- /card --></article>
 {% endfor %}
 <!-- /posts cards --></div>
+
+<!-- ページネーション -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+<ul class="pagination-list">
+{% if paginator.previous_page %}
+<li class="prev"><a href="{{ paginator.previous_page_path | relative_url }}">&lt; 前のページ</a></li>
+{% endif %}
+{% if paginator.next_page %}
+<li class="next"><a href="{{ paginator.next_page_path | relative_url }}">次のページ &gt;</a></li>
+{% endif %}
+</ul>
+<p>{{ paginator.page }} / {{ paginator.total_pages }}</p>
+</div>
+{% endif %}

@@ -728,6 +728,33 @@ $lines-to-show : 3;
   }
 }
 
+//
+// pagenation
+//
+
+.pagination {
+  position: relative;
+  margin-top: 30px;
+  font-size: 1.4rem;
+  .pagination-list {
+    position: relative;
+    z-index: 2;
+    @extend %clf;
+    .prev {
+      float: left;
+    }
+    .next {
+      float: right;
+    }
+  }
+  > p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
 
 //
 // side
